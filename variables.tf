@@ -527,7 +527,7 @@ variable "create_database_subnet_group" {
 variable "database_subnet_group_name" {
   description = "Name of database subnet group"
   type        = string
-  default     = null
+  default     = "db_subnet_group"
 }
 
 variable "database_subnet_group_tags" {
