@@ -115,7 +115,8 @@ resource "aws_subnet" "public" {
       Name = try(
         var.public_subnet_names[count.index],
         format("${var.name}-${var.public_subnet_suffix}-%s", element(var.azs, count.index))
-      )
+      ),
+      Type = "Public"
     },
     var.tags,
     var.public_subnet_tags,
@@ -241,7 +242,9 @@ resource "aws_subnet" "private" {
       Name = try(
         var.private_subnet_names[count.index],
         format("${var.name}-${var.private_subnet_suffix}-%s", element(var.azs, count.index))
-      )
+      ),
+
+      Type = "Private"
     },
     var.tags,
     var.private_subnet_tags,
