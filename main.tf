@@ -812,7 +812,8 @@ resource "aws_subnet" "intra" {
       Name = try(
         var.intra_subnet_names[count.index],
         format("${var.name}-${var.intra_subnet_suffix}-%s", element(var.azs, count.index))
-      )
+      ),
+      Type = "Intra"
     },
     var.tags,
     var.intra_subnet_tags,
